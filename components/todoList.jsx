@@ -14,7 +14,6 @@ class TodoList extends Component{
 	handleAdd(name){
 		var newArr = this.state.todo;
 		newArr.push(name);
-		console.log(newArr);
 		this.setState({
 			todo:newArr
 		});
@@ -26,8 +25,6 @@ class TodoList extends Component{
 		this.setState({
 			todo:newArr
 		});
-		console.log(index);
-		console.log("delete");
 	}
 
 	render(){
@@ -72,7 +69,6 @@ class List extends Component{
 	}
 
 	handleClick(e){
-		console.log(e.target.getAttribute('data-index'));
 		this.props.handleDelete(e.target.getAttribute('data-index'));
 	}
 
@@ -83,8 +79,6 @@ class List extends Component{
 				<ul>
 					{
 						list.map((item,index)=>{
-							console.log(item);
-							console.log(index);
 							return (
 								<li key={index}>{item}<button onClick={this.handleClick} data-index={index}>done</button></li>
 							)
