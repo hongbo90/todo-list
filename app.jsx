@@ -1,18 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-class App extends React.Component{
-	render(){
-		return (
-			<div>
-				Hello World!
-			</div>
-		)
-	}
-}
+import TodoList from './components/todoList'
 
 var node = document.createElement('div');
 ReactDOM.render(
-	<App />,
+	<TodoList />,
 	document.body.appendChild(node)
 );
