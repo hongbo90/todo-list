@@ -5,7 +5,8 @@ class TodoList extends Component{
 	constructor(props){
 		super(props);
 		this.state = {
-			todo:[]
+			todo:[],
+			done:[]
 		}
 		this.handleAdd = this.handleAdd.bind(this);
 		this.handleDelete = this.handleDelete.bind(this);
@@ -21,18 +22,23 @@ class TodoList extends Component{
 
 	handleDelete(index){
 		var newArr = this.state.todo;
+		var doneArr = this.state.done;
+		console.log(newArr,doneArr);
+		doneArr.push(newArr[index]);
 		newArr.splice(index,1);
 		this.setState({
-			todo:newArr
+			todo:newArr,
+			done:doneArr
 		});
 	}
 
 	render(){
 		return (
 			<div>
-				Hello World 23!
+				<h1>TodoList</h1>
 				<List list = {this.state} handleDelete={this.handleDelete} />
 				<TodoText handleAdd={this.handleAdd} list = {this.state} />
+				<DoneList list={this.state} />
 			</div>
 		)
 	}
@@ -87,6 +93,26 @@ class List extends Component{
 				</ul>
 			</div>
 		);
+	}
+}
+
+class DoneList extends Component{
+	render(){
+		var list = this.props.list.done;
+		console.log(list);
+		return (
+			<div>
+				<ul>
+					{
+						list.map((item,index)=>{
+							return (
+								<li key={index}><del>{item}</del></li>
+							)
+						})	
+					}
+				</ul>
+			</div>
+		)
 	}
 }
 
