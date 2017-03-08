@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import './todolist.scss';
 
 class TodoList extends Component{
 
@@ -60,7 +61,7 @@ class TodoText extends Component{
 	render(){
 		return (
 			<div>
-				<input type="text" ref="todoInput" />
+				<input className="inputText" type="text" ref="todoInput" />
 				<button onClick={this.handleClick}>Add</button>
 			</div>
 		);
